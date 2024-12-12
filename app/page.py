@@ -117,9 +117,19 @@ class GenerateExamPage(Page):
 
         # Logic for selecting bài
         if selected_sach:
+
+            # Choose Chủ Đề (multiple choice)
+            chude_options = data[data['SACH'].isin(selected_sach)]['CHUDE'].unique()  #data[data['BAI'] == selected_bai]['CHUDE'].unique()
+            selected_chude = st.multiselect("Chọn Chủ Đề", chude_options, key="chude_select", default=st.session_state.selected_chude)
+            
             # Create a select box to choose a single 'Bài'
-            bai_options = data[data['SACH'].isin(selected_sach)]['BAI'].unique()
+            bai_options = data[data['CHUDE'].isin(selected_sach)]['BAI'].unique()
             selected_bai = st.selectbox("Chọn Bài", bai_options, key="bai_select")
+
+            
+            # Choose Yêu Cầu Cần Đạt (multiple choice)
+            yccd_options = data[data['BAI'] == selected_bai]['NOIDUNG_YCCD'].unique()
+            selected_yccd = st.multiselect("Chọn Yêu Cầu Cần Đạt", yccd_options, key="yccd_select", default=st.session_state.selected_yccd)
 
             # Input number of questions for each level
             st.header("Nhập số lượng câu hỏi cho mức độ")
@@ -131,14 +141,6 @@ class GenerateExamPage(Page):
                     step=1,
                     key=f"questions_{mucdo}"
                 )
-
-            # Choose Chủ Đề (multiple choice)
-            chude_options = data[data['BAI'] == selected_bai]['CHUDE'].unique()
-            selected_chude = st.multiselect("Chọn Chủ Đề", chude_options, key="chude_select", default=st.session_state.selected_chude)
-
-            # Choose Yêu Cầu Cần Đạt (multiple choice)
-            yccd_options = data[data['BAI'] == selected_bai]['NOIDUNG_YCCD'].unique()
-            selected_yccd = st.multiselect("Chọn Yêu Cầu Cần Đạt", yccd_options, key="yccd_select", default=st.session_state.selected_yccd)
 
             # Option to continue selecting more bài
             if st.button("Tiếp Tục Chọn Bài"):
