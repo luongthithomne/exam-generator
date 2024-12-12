@@ -8,6 +8,6 @@ output_file = 'C:\DEANTN\genarate_question\data.csv'
 data = pd.read_excel(input_file)
 
 # Ghi tệp CSV
-data.to_csv(output_file, index=False, encoding='utf-8')
+data.to_csv(output_file, index=False, encoding='utf-8', sep=";")
 
 print(f"Đã chuyển đổi thành công {input_file} sang {output_file}")
