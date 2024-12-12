@@ -1,0 +1,483 @@
+[
+    {
+        "timestamp": "2024-10-29 21:50:25",
+        "questions": [
+            {
+                "id": 1,
+                "question": "  Một kiểu dữ liệu nào sau đây thường được sử dụng để lưu trữ giá trị true (Đúng) hoặc false (Sai)?",
+                "answers": [
+                    "Số nguyên",
+                    "Dữ liệu logic",
+                    "Dữ liệu chuỗi",
+                    "Dữ liệu dấu phẩy động"
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 2,
+                "question": "  Hệ nhị phân sử dụng hai ký tự nào để biểu diễn dữ liệu?",
+                "answers": [
+                    "0 và 1",
+                    "a và b",
+                    "1 và 2",
+                    "true và false"
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 3,
+                "question": "  Trong số hóa âm thanh, điều nào sau đây là yếu tố quan trọng nhất để đảm bảo chất lượng âm thanh?",
+                "answers": [
+                    "Tần số lấy mẫu",
+                    "Kích thước tệp",
+                    "Độ phân giải bit",
+                    "Thời gian phát lại"
+                ],
+                "correct_answer": 2
+            },
+            {
+                "id": 4,
+                "question": "  Khi thực hiện phép toán nào sau đây, kết quả sẽ là true nếu cả hai toán hạng đều true?",
+                "answers": [
+                    "AND",
+                    "OR",
+                    "NOT",
+                    "XOR"
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 5,
+                "question": "  Trong hệ thống mã hóa tiếng Việt, bảng mã nào sau đây là chuẩn quốc tế được sử dụng phổ biến nhất?",
+                "answers": [
+                    "ISO-8859-1",
+                    "Unicode",
+                    "ASCII",
+                    "TCVN 6909"
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 6,
+                "question": "  Khi số hóa hình ảnh, thuật ngữ nào sau đây mô tả số pixel trên từng inch của hình ảnh?",
+                "answers": [
+                    "Kích thước",
+                    "Độ phân giải",
+                    "Tốc độ khung hình",
+                    "PPI (Pixels per inch)"
+                ],
+                "correct_answer": 3
+            }
+        ]
+    },
+    {
+        "timestamp": "2024-10-29 21:50:52",
+        "questions": [
+            {
+                "id": 1,
+                "question": "  Trong hệ nhị phân, phép tính AND giữa hai số 1 và 0 sẽ cho kết quả là:",
+                "answers": [
+                    "1",
+                    "0",
+                    "2",
+                    "1.5"
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 2,
+                "question": "  Dữ liệu văn bản được lưu trữ trên máy tính chủ yếu dưới dạng:",
+                "answers": [
+                    "Chuỗi ký tự",
+                    "Hình ảnh",
+                    "Âm thanh",
+                    "Video"
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 3,
+                "question": "  Chức năng chính của bảng mã chuẩn quốc tế Unicode là:",
+                "answers": [
+                    "Chỉ cho phép một ngôn ngữ sử dụng",
+                    "Hỗ trợ nhiều ngôn ngữ và ký tự khác nhau",
+                    "Chỉ lưu trữ ký tự số",
+                    "Giảm kích thước tài liệu"
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 4,
+                "question": "  Phép tính OR giữa các số nhị phân 0 và 1 sẽ cho ra kết quả là:",
+                "answers": [
+                    "1",
+                    "0",
+                    "2",
+                    "-1"
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 5,
+                "question": "  Để số hóa một hình ảnh, quá trình đầu tiên thường là:",
+                "answers": [
+                    "Chuyển đổi ảnh thành dữ liệu số",
+                    "Trực tiếp vẽ lên màn hình",
+                    "Sử dụng âm thanh",
+                    "In trên giấy"
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 6,
+                "question": "  Một trong những lợi ích của bảng mã Unicode là:",
+                "answers": [
+                    "Cho phép hiển thị đa dạng ngôn ngữ trên toàn cầu",
+                    "Giúp tiết kiệm không gian lưu trữ",
+                    "Chỉ hỗ trợ ký tự Latinh",
+                    "Làm giảm tốc độ xử lý dữ liệu"
+                ],
+                "correct_answer": 0
+            }
+        ]
+    },
+    {
+        "timestamp": "2024-10-30 22:06:55",
+        "questions": [
+            {
+                "id": 1,
+                "question": "  Thông tin nào dưới đây được coi là dữ liệu?  ",
+                "answers": [
+                    "Tôi có 10 quả táo",
+                    "Không khí trong phòng",
+                    "Bầu trời đẹp",
+                    "Một bản ghi trong sổ sách"
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 2,
+                "question": "  Trong số các khái niệm sau, khái niệm nào được xác định rõ ràng hơn?  ",
+                "answers": [
+                    "Một chiếc xe hơi",
+                    "Một cái bàn",
+                    "Màu sắc của bầu trời",
+                    "Sự ấm áp của mặt trời"
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 3,
+                "question": "  Ví dụ nào dưới đây thể hiện sự phân biệt giữa dữ liệu và thông tin?  ",
+                "answers": [
+                    "1900 - Năm nền văn minh Babylon ra đời",
+                    "1000 - Số học sinh trong lớp 5A",
+                    "Xanh lục - Màu sắc của lá cây",
+                    "Nhiệt độ 37 độ C - Thông tin về sức khỏe"
+                ],
+                "correct_answer": 1
+            }
+        ]
+    },
+    {
+        "timestamp": "2024-10-30 22:39:19",
+        "questions": [
+            {
+                "id": 1,
+                "question": "  Dữ liệu là gì trong lĩnh vực tin học?  ",
+                "answers": [
+                    "Thông tin đã được xử lý có ý nghĩa.",
+                    "Thông tin chưa được xử lý hoặc không có ý nghĩa.",
+                    "Các kết quả phân tích từ thông tin.",
+                    "Các chương trình phần mềm."
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 2,
+                "question": "  Đâu là ví dụ về thông tin?  ",
+                "answers": [
+                    "Nhiệt độ hiện tại là 30 độ C.",
+                    "Các số liệu thô trong một bảng biểu.",
+                    "Danh sách các thiết bị điện tử.",
+                    "Các ký tự ngẫu nhiên."
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 3,
+                "question": "  Khi nào thông tin trở thành dữ liệu?  ",
+                "answers": [
+                    "Khi nó được lưu trữ trên máy tính.",
+                    "Khi nó chưa được sắp xếp và phân tích.",
+                    "Khi nó được sử dụng để đưa ra quyết định.",
+                    "Khi nó được chuyển giao sang định dạng khác."
+                ],
+                "correct_answer": 1
+            }
+        ]
+    },
+    {
+        "timestamp": "2024-11-10 21:03:50",
+        "questions": [
+            {
+                "id": 1,
+                "question": "Biến trong lập trình được hiểu là gì?",
+                "answers": [
+                    "-   Một giá trị không thay đổi",
+                    "-   Một vùng nhớ có tên lưu trữ giá trị có thể thay đổi",
+                    "-   Một công thức toán học",
+                    "-   Một chương trình"
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 2,
+                "question": "Khi nào biến trong chương trình được khởi tạo?",
+                "answers": [
+                    "-   Khi chương trình kết thúc",
+                    "-   Khi biến được khai báo",
+                    "-   Khi biến không được sử dụng",
+                    "-   Khi có giá trị mới"
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 3,
+                "question": "Câu lệnh nào được sử dụng để nhập dữ liệu từ bàn phím trong ngôn ngữ lập trình C?",
+                "answers": [
+                    "-   print",
+                    "-   scanf",
+                    "-   input",
+                    "-   read"
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 4,
+                "question": "Đâu là một ví dụ về kiểu dữ liệu số nguyên trong lập trình?",
+                "answers": [
+                    "-   5.5",
+                    "-   10",
+                    "-   \"Hello\"",
+                    "-   True"
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 5,
+                "question": "Trong mảng, chỉ số bắt đầu từ số nào trong hầu hết các ngôn ngữ lập trình?",
+                "answers": [
+                    "-   0",
+                    "-   1",
+                    "-   2",
+                    "-   Không xác định"
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 6,
+                "question": "Tổng của 2 biến a và b được biểu diễn trong một ứng dụng sẽ được viết như thế nào?",
+                "answers": [
+                    "-   a + b = c",
+                    "-   c = a + b",
+                    "-   c = a + b",
+                    "-   a + b => c"
+                ],
+                "correct_answer": 2
+            },
+            {
+                "id": 7,
+                "question": "Cấu trúc điều khiển nào được dùng để kiểm tra một điều kiện logic?",
+                "answers": [
+                    "-   if-else",
+                    "-   for",
+                    "-   switch",
+                    "-   block"
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 8,
+                "question": "Biến hằng trong lập trình có đặc điểm gì?",
+                "answers": [
+                    "-   Có thể thay đổi giá trị",
+                    "-   Không thể thay đổi giá trị sau khi khởi tạo",
+                    "-   Chỉ sử dụng một lần",
+                    "-   Là một kiểu dữ liệu số"
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 9,
+                "question": "Trong ngôn ngữ lập trình, toán tử nào dùng để so sánh hai giá trị?",
+                "answers": [
+                    "-   +",
+                    "-   /",
+                    "-   ==",
+                    "-   &"
+                ],
+                "correct_answer": 2
+            },
+            {
+                "id": 10,
+                "question": "Câu lệnh nào sau đây không phải là câu lệnh điều kiện?",
+                "answers": [
+                    "-   loop",
+                    "-   if",
+                    "-   switch",
+                    "-   for"
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 11,
+                "question": "Phạm vi của một biến được quy định bởi điều gì?",
+                "answers": [
+                    "-   Vị trí khai báo biến",
+                    "-   Loại dữ liệu của biến",
+                    "-   Tên biến",
+                    "-   Giá trị của biến"
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 12,
+                "question": "Hằng số trong lập trình có chức năng gì?",
+                "answers": [
+                    "-   Để xác định một giá trị không thay đổi trong suốt chương trình",
+                    "-   Để lưu trữ giá trị tạm thời",
+                    "-   Để thực hiện các phép toán",
+                    "-   Để kiểm tra điều kiện"
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 13,
+                "question": "Kiểu dữ liệu nào không phải là một kiểu dữ liệu cơ bản trong lập trình?",
+                "answers": [
+                    "-   int",
+                    "-   float",
+                    "-   string",
+                    "-   char"
+                ],
+                "correct_answer": 2
+            },
+            {
+                "id": 14,
+                "question": "Để xử lý nhiều giá trị cùng một loại dữ liệu, lập trình viên thường sử dụng cấu trúc nào?",
+                "answers": [
+                    "-   Mảng",
+                    "-   Biến hằng",
+                    "-   Kiểu dữ liệu",
+                    "-   Hàm"
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 15,
+                "question": "Để in ra màn hình một biến trong C, ta dùng câu lệnh nào?",
+                "answers": [
+                    "-   printf",
+                    "-   echo",
+                    "-   output",
+                    "-   disp"
+                ],
+                "correct_answer": 0
+            }
+        ]
+    },
+    {
+        "timestamp": "2024-12-07 10:02:28",
+        "questions": [
+            {
+                "id": 1,
+                "question": "Q: Quyền nào dưới đây không thuộc về quyền nhân thân của tác giả?",
+                "answers": [
+                    "- Đặt tên cho tác phẩm.",
+                    "- Bảo vệ sự toàn vẹn của tác phẩm, ngăn cản sự sửa đổi, cắt xén hoặc xuyên tạc tác phẩm có thể gây tổn hại đến danh dự và uy tín của tác giả.",
+                    "- Chia sẻ tác phẩm với công chúng.",
+                    "- Được phép đứng tên thật hoặc bút danh trên tác phẩm."
+                ],
+                "correct_answer": 2
+            },
+            {
+                "id": 2,
+                "question": "Q: Vào ngày  tháng 6 năm 2019, Quốc hội Việt Nam đã thông qua luật nào liên quan đến quyền tác giả?",
+                "answers": [
+                    "- Luật tác giả.",
+                    "- Luật sở hữu.",
+                    "- Luật sở hữu trí tuệ.",
+                    "- Luật trí tuệ."
+                ],
+                "correct_answer": 2
+            },
+            {
+                "id": 3,
+                "question": "Q: Hình thức nào sau đây được xem là vi phạm bản quyền đối với sản phẩm phần mềm?",
+                "answers": [
+                    "- Mạo nhận danh tính tác giả.",
+                    "- Công bố tác phẩm mà không có sự đồng ý.",
+                    "- Sửa đổi, tạo phiên bản mới của phần mềm hoặc dữ liệu mà không có sự cho phép từ tác giả.",
+                    "- Tất cả các lựa chọn trên đều là hành vi vi phạm bản quyền đối với sản phẩm tin họ"
+                ],
+                "correct_answer": 3
+            },
+            {
+                "id": 4,
+                "question": "Q: Nghị định  2008/NĐ-CP được ban hành vào ngày 13 tháng 8 năm 2008 nói về chủ đề gì?",
+                "answers": [
+                    "- Chống thư rá",
+                    "- Quản lý, cung cấp, và sử dụng dịch vụ Internet.",
+                    "- Quy định xử phạt vi phạm hành chính trong lĩnh vực bưu chính, viễn thông,...",
+                    "- Tất cả các đáp án đều đúng."
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 5,
+                "question": "Q: Nghị định  2020/NĐ-CP ban hành vào ngày 3 tháng 2 năm 2020 quy định về vấn đề nào?",
+                "answers": [
+                    "- Chống thư rá",
+                    "- Quản lý, cung cấp, và sử dụng dịch vụ Internet.",
+                    "- Xử phạt các hành vi vi phạm hành chính trong các lĩnh vực như bưu chính, viễn thông, tần số vô tuyến, công nghệ thông tin và giao dịch điện tử.",
+                    "- Quy tắc ứng xử trên mạng xã hội."
+                ],
+                "correct_answer": 2
+            },
+            {
+                "id": 6,
+                "question": "Q: Nghị định nào liên quan đến các hành vi vi phạm quyền sở hữu trí tuệ?",
+                "answers": [
+                    "- Nghị định 90/2008/NĐ-CP.",
+                    "- Nghị định số 131/2013/NĐ-CP.",
+                    "- Nghị định 72/2013/NĐ-CP.",
+                    "- Nghị định 15/2020/NĐ-CP."
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 7,
+                "question": "Q: Các quyền tài sản bao gồm những quyền nào dưới đây?",
+                "answers": [
+                    "- Tạo ra tác phẩm phái sinh.",
+                    "- Công bố tác phẩm hoặc cho phép người khác công bố.",
+                    "- Đặt tên cho tác phẩm.",
+                    "- Được ghi tên thật hoặc bút danh trên tác phẩm."
+                ],
+                "correct_answer": 0
+            },
+            {
+                "id": 8,
+                "question": "Q: Quy định về Luật An ninh mạng được Quốc hội Việt Nam thông qua vào năm nào?",
+                "answers": [
+                    "- 1998.",
+                    "- 2008.",
+                    "- 2018.",
+                    "- 2017."
+                ],
+                "correct_answer": 2
+            }
+        ]
+    }
+]
