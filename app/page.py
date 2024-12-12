@@ -93,7 +93,7 @@ class GenerateExamPage(Page):
 
         # Load CSV data
         csv_file_path = ROOT_PATH + '/data.csv'
-        data = pd.read_csv(csv_file_path, delimiter=';')
+        data = pd.read_csv(csv_file_path, delimiter=';', on_bad_lines='skip')
         data = data[['SACH', 'BAI', 'CHUDE', 'MUCDO', 'NOIDUNG_YCCD']].dropna()
 
         # Initialize session state for selected items if not already done

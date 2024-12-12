@@ -177,7 +177,7 @@ def get_questions(topics: str, number_of_questions: int, number_of_answers: int,
                   yccd: List[str], contains_num: int, delta: float) -> List[Question]:
     print('get_questions')
 
-    data = pd.read_csv(ROOT_PATH + '/data.csv', delimiter=';')
+    data = pd.read_csv(ROOT_PATH + '/data.csv', delimiter=';', on_bad_lines='skip')
     # Filter the data based on selected Sách, Bài, and Chủ Đề
     filtered_data = data[
         (data['SACH'].isin(sach)) &  # Changed from == to isin for list of Sách
@@ -294,7 +294,7 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
                             sach: List[str], bai: List[str], chude: List[str], mucdo: List[tuple],
                             yccd: List[str], contains_num: int, delta: float) -> List[Question]:
     # Load the data from CSV
-    data = pd.read_csv(ROOT_PATH + '/data.csv', delimiter=';')
+    data = pd.read_csv(ROOT_PATH + '/data.csv', delimiter=';', on_bad_lines='skip')
     new_questions = []
     # Filter the data based on selected Sách, Bài, and Chủ Đề
     filtered_data = data[
