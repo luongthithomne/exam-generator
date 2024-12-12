@@ -82,7 +82,7 @@ class GenerateExamPage(Page):
         st.markdown(self.description, unsafe_allow_html=True)
 
         # Load CSV data
-        csv_file_path = '/mount/src/genarate_question/data.csv'  # Update this with your CSV path
+        csv_file_path = '/mount/src/exam-generator/data.csv'  # Update this with your CSV path
         data = pd.read_csv(csv_file_path, delimiter=';')
         data = data[['SACH', 'BAI', 'CHUDE', 'MUCDO', 'NOIDUNG_YCCD']].dropna()  # Chỉ định cột NOIDUNG_YCCD
 

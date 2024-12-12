@@ -17,7 +17,7 @@ import torch
 import torch.nn.functional as F
 import random
 
-ROOT_PATH = '/mount/src/genarate_question'
+ROOT_PATH = '/mount/src/exam-generator'
 MODEL = "gpt-4o-mini"
 # Load PhoBERT model and tokenizer
 tokenizer_phobert = AutoTokenizer.from_pretrained("vinai/phobert-base")

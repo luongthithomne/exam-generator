@@ -7,7 +7,7 @@ from model.question import Question
 from utils.api import get_questions, clarify_question, get_questions_from_bank
 from utils.generate_document import questions_to_pdf
 
-ROOT_PATH = '/mount/src/genarate_question'
+ROOT_PATH = '/mount/src/exam-generator'
 class PageEnum:
     """
     Enum for pages
