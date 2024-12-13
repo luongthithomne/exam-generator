@@ -330,7 +330,10 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
 
         # Create Question objects from the selected data
         for i, (cauhoi, cautraloi, dapan) in enumerate(selected_questions):
-            answers = cautraloi.split('~')  # Split answers by '~'
+            # Làm sạch câu hỏi
+            cauhoi = sanitize_line(cauhoi, is_question=True)
+            # Làm sạch từng đáp án
+            answers = [sanitize_line(answer.strip(), is_question=False) for answer in cautraloi.split('~')]
 
             # Find the most similar answer to the correct answer using PhoBERT embeddings
             correct_answer_index = get_most_similar_answer(dapan, answers)
