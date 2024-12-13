@@ -144,21 +144,11 @@ class GenerateExamPage(Page):
             )
             # Input number of questions for each level
             st.header("Nhập số lượng câu hỏi cho mức độ")
-            default_values = {
-                'Nhận biết': 1,
-                'Thông hiểu': 2,
-                'Vận dụng': 3
-            }
-
-            # Lặp qua các mức độ và gán giá trị mặc định
             for mucdo in st.session_state.questions_per_mucdo.keys():
-                # Lấy giá trị mặc định nếu có, nếu không thì giữ nguyên giá trị cũ trong session_state
-                default_value = default_values.get(mucdo, st.session_state.questions_per_mucdo[mucdo])
-                
                 st.session_state.questions_per_mucdo[mucdo] = st.number_input(
                     f"Số lượng câu hỏi cho mức độ '{mucdo}'",
                     min_value=0,
-                    value=default_value,
+                    value=st.session_state.questions_per_mucdo[mucdo],
                     step=1,
                     key=f"questions_{mucdo}"
                 )
