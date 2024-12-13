@@ -6,6 +6,7 @@ from typing import Optional
 from model.question import Question
 from utils.api import get_questions, clarify_question, get_questions_from_bank
 from utils.generate_document import questions_to_pdf
+import pandas as pd
 
 ROOT_PATH = '/mount/src/exam-generator'
 class PageEnum:
@@ -172,10 +173,32 @@ class GenerateExamPage(Page):
                 st.rerun()  # Reload the page to allow new selections
 
             # Display saved bài information
-            if st.session_state.selected_bai_info:
-                st.write("Thông tin các bài đã chọn:")
-                for info in st.session_state.selected_bai_info:
-                    st.write(info)
+            # if st.session_state.selected_bai_info:
+            #     st.write("Thông tin các bài đã chọn:")
+            #     for info in st.session_state.selected_bai_info:
+            #         st.write(info)
+
+            
+
+            # Tạo DataFrame từ thông tin đã chọn
+            selected_info = st.session_state.selected_bai_info
+            flattened_data = []
+
+            for info in selected_info:
+                for mucdo, count in info['Số lượng câu hỏi'].items():
+                    flattened_data.append({
+                        "Sách": ', '.join(info["Sách"]),
+                        "Bài": info["Bài"],
+                        "Chủ Đề": ', '.join(info["Chủ Đề"]),
+                        "Yêu Cầu Cần Đạt": ', '.join(info["Yêu Cầu Cần Đạt"]),
+                        "Mức Độ": mucdo,
+                        "Số Lượng": count
+                    })
+
+            # Hiển thị dưới dạng bảng
+            df = pd.DataFrame(flattened_data)
+            st.table(df)
+
 
         # Calculate the total number of questions based on user input
         total_questions = sum(sum(info['Số lượng câu hỏi'].values()) for info in st.session_state.selected_bai_info)
