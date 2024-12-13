@@ -11,11 +11,14 @@ data = pd.read_excel(input_file)
 # Làm sạch cột câu hỏi: Xóa tiền tố như "Câu 1" hoặc "Câu 10:" với hoặc không có dấu ":"
 data['CAUHOI'] = data['CAUHOI'].apply(lambda x: re.sub(r"^(Câu|câu|cau|Cau)\s+\d+\s*:? ?", "", x))
 
-# Làm sạch cột câu trả lời: Xóa lặp kiểu "A. A."
 data['CAUTRALOI'] = data['CAUTRALOI'].apply(lambda x: '~'.join(
-    re.sub(r"^[A-Z]\.\s*[A-Z]\.\s*", "", answer.strip()) for answer in x.split('~')
+    re.sub(r"^[A-Z]\.", "", answer.strip()) for answer in x.split('~')
 ))
 
+data['CAUTRALOI'] = data['CAUTRALOI'].apply(lambda x: '~'.join(
+    re.sub(r"^[A-Z]\.", "", answer.strip()) if re.match(r"^[A-Z]\.", answer.strip()) else answer
+    for answer in x.split('~')
+))
 # Ghi tệp CSV
 data.to_csv(output_file, index=False, encoding='utf-8', sep=";")
 
