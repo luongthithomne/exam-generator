@@ -16,6 +16,11 @@ data['CAUHOI'] = data['CAUHOI'].apply(lambda x: re.sub(r"(Câu\s+\d+:)\s*(Câu\s
 data['CAUTRALOI'] = data['CAUTRALOI'].apply(lambda x: '~'.join(
     re.sub(r"^[A-Z]\.\s*[A-Z]\.\s*", "", answer.strip()) for answer in x.split('~')
 ))
+
+# Làm sạch đáp án: Xóa lặp kiểu "A. A."
+data['CAUTRALOI'] = data['CAUTRALOI'].apply(lambda x: '~'.join(
+    re.sub(r"^[A-Z]\.\s*[A-Z]\.\s*", "", answer.strip()) for answer in x.split('~')
+))
 # Ghi tệp CSV
 data.to_csv(output_file, index=False, encoding='utf-8', sep=";")
 
