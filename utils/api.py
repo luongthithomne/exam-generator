@@ -57,6 +57,8 @@ def prepare_prompt(topics: str, number_of_questions: int, number_of_answers: int
 
     prompt = (
         f"Tạo một đề thi trắc nghiệm gồm {number_of_questions} câu hỏi với {number_of_answers} câu trả lời "
+        f"Đảm bảo các câu hỏi rõ ràng và không chứa định dạng sai như thừa ký tự hay dấu không cần thiết. "
+        f"Ví dụ câu hỏi: 'Những câu phát biểu nào sau đây đúng?' phải được viết rõ ràng và có đáp án hợp lệ."
         f"cho mỗi câu hỏi. Đáp án đúng phải được bôi đậm (bao quanh bởi **). "
         f"Chủ đề của đề thi là Tin học "
         f"Sách được chọn: {', '.join(sach)}, các bài học: {bai_str}, các chủ đề: {chude_str}, "
