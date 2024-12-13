@@ -223,9 +223,6 @@ class GenerateExamPage(Page):
 
                 # Hiển thị dưới dạng bảng
                 st.table(grouped)
-            else:
-                st.table(df)
-
 
 
         # Calculate the total number of questions based on user input
