@@ -127,8 +127,8 @@ class GenerateExamPage(Page):
             
             # Create a select box to choose a single 'Bài'
             bai_options = data[data['CHUDE'].isin(selected_chude)]['BAI'].unique()
-            selected_bai = st.multiselect("Chọn Bài", bai_options, key="bai_select", default=st.session_state.selected_bai)
-            # selected_bai = st.selectbox("Chọn Bài", bai_options, key="bai_select")
+            selected_bai = st.selectbox("Chọn Bài", bai_options, key="bai_select")
+
             
             # Choose Yêu Cầu Cần Đạt (multiple choice)
             yccd_options = data[data['BAI'] == selected_bai]['NOIDUNG_YCCD'].unique()
