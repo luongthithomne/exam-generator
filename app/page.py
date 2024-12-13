@@ -132,8 +132,16 @@ class GenerateExamPage(Page):
             
             # Choose Yêu Cầu Cần Đạt (multiple choice)
             yccd_options = data[data['BAI'] == selected_bai]['NOIDUNG_YCCD'].unique()
-            selected_yccd = st.multiselect("Chọn Yêu Cầu Cần Đạt", re.sub(r"~+$", "", yccd_options), key="yccd_select", default=st.session_state.selected_yccd)
+            # Làm sạch các chuỗi trong yccd_options bằng cách loại bỏ dấu ~ ở cuối
+            cleaned_yccd_options = [re.sub(r"~+$", "", yccd) for yccd in yccd_options]
 
+            # Sử dụng giá trị đã làm sạch cho multiselect
+            selected_yccd = st.multiselect(
+                "Chọn Yêu Cầu Cần Đạt",
+                cleaned_yccd_options,
+                key="yccd_select",
+                default=st.session_state.selected_yccd
+            )
             # Input number of questions for each level
             st.header("Nhập số lượng câu hỏi cho mức độ")
             for mucdo in st.session_state.questions_per_mucdo.keys():
