@@ -74,9 +74,9 @@ def prepare_prompt_regenerate(questions: List[Question]) -> str:
         prompt += f"Q: {q.question}\n"
         for i, answer in enumerate(q.answers):
             if i == q.correct_answer:
-                prompt += f"- **{answer}**\n"
+                prompt += f"**{answer}**\n"
             else:
-                prompt += f"- {answer}\n"
+                prompt += f"{answer}\n"
         prompt += "\n"
     return prompt
     # return (
@@ -96,13 +96,19 @@ def sanitize_line(line: str, is_question: bool) -> str:
     :param is_question: Whether the line is a question or an answer
     :return: Sanitized line
     """
-    if is_question:
-        line = re.sub(r"^Q:\s?", "", line)  # Xóa tiền tố "Q: " nếu tồn tại
-        new_line = re.sub(r"[0-9]+.", " ", line, count=1) # Xóa số thứ tự câu hỏi
-    else:
-        new_line = re.sub(r"[a-eA-E][).]", " ", line, count=1) #xóa tiền tố đáp án 
+   # if is_question:
+        #line = re.sub(r"^Q:\s?", "", line)  # Xóa tiền tố "Q: " nếu tồn tại
+        #new_line = re.sub(r"[0-9]+.", " ", line, count=1) # Xóa số thứ tự câu hỏi
+    #else:
+        #new_line = re.sub(r"[a-eA-E][).]", " ", line, count=1) #xóa tiền tố đáp án 
 
-    return new_line
+    #return new_line
+    if is_question:
+        line = re.sub(r"^Q:\s?", "", line)  # Xóa tiền tố "Q: "
+        line = re.sub(r"[0-9]+\. ", "", line)  # Xóa số thứ tự nếu có
+    else:
+        line = re.sub(r"^[a-eA-E][).]\s?", "", line)  # Xóa tiền tố đáp án (A., B., ...)
+    return line.strip()
 
 
 def get_correct_answer(answers: List[str]) -> int:
