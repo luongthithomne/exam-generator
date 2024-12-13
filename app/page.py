@@ -209,11 +209,11 @@ class GenerateExamPage(Page):
             #     #values="SL",
 
             # Đổi tên các cột để hiển thị rõ ràng
-            grouped.columns.name = None  # Xóa tên của cột
-            grouped = grouped.rename(columns={"Thông hiểu": "TH", "Nhận biết": "NB", "Vận dụng": "VD"})
+            # grouped.columns.name = None  # Xóa tên của cột
+            # grouped = grouped.rename(columns={"Thông hiểu": "TH", "Nhận biết": "NB", "Vận dụng": "VD"})
 
-            # Hiển thị dưới dạng bảng
-            st.table(grouped)
+            # # Hiển thị dưới dạng bảng
+            # st.table(grouped)
 
 
 
