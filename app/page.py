@@ -7,6 +7,7 @@ from model.question import Question
 from utils.api import get_questions, clarify_question, get_questions_from_bank
 from utils.generate_document import questions_to_pdf
 import pandas as pd
+import streamlit as st
 
 ROOT_PATH = '/mount/src/exam-generator'
 class PageEnum:
@@ -195,9 +196,25 @@ class GenerateExamPage(Page):
                         "Số Lượng": count
                     })
 
-            # Hiển thị dưới dạng bảng
+            # Chuyển dữ liệu thành DataFrame
             df = pd.DataFrame(flattened_data)
-            st.table(df)
+
+            # Gộp các hàng có cùng Sách, Bài, Chủ Đề, Yêu Cầu Cần Đạt
+            grouped = df.pivot_table(
+                index=["Sách", "Bài", "Chủ Đề", "Yêu Cầu Cần Đạt"],
+                columns="Mức Độ",
+                values="Số Lượng",
+                aggfunc="sum",
+                fill_value=0,  # Thay giá trị NaN bằng 0
+            ).reset_index()
+
+            # Đổi tên các cột để hiển thị rõ ràng
+            grouped.columns.name = None  # Xóa tên của cột
+            grouped = grouped.rename(columns={"Thông hiểu": "TH", "Nhận biết": "NB", "Vận dụng": "VD"})
+
+            # Hiển thị dưới dạng bảng
+            st.table(grouped)
+
 
 
         # Calculate the total number of questions based on user input
