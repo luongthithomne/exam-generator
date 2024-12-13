@@ -110,7 +110,9 @@ def sanitize_line(line: str, is_question: bool) -> str:
         line = re.sub(r"^Q:\s?", "", line)  # Xóa tiền tố "Q: "
         line = re.sub(r"[0-9]+\. ", "", line)  # Xóa số thứ tự nếu có
     else:
-        line = re.sub(r"^[a-eA-E][).]\s?", "", line)  # Xóa tiền tố đáp án (A., B., ...)
+        # Loại bỏ tiền tố lặp lại (ví dụ: "C. C.")
+        line = re.sub(r"^[a-dA-D][.)]\s*", "", line)  # Xóa tiền tố đáp án (A., B., ...)
+        line = re.sub(r"^[a-dA-D][.)]\s*", "", line)  # Nếu còn lặp thêm lần nữa, xóa tiếp
     return line.strip()
 
 
