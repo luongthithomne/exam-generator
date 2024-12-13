@@ -106,6 +106,7 @@ def sanitize_line(line: str, is_question: bool) -> str:
 
     #return new_line
     if is_question:
+        line = re.sub(r"(Câu\s+\d+:)\s*(Câu\s+\d+:)?", "Câu ", line)  # Xóa chuỗi lặp "Câu X: Câu Y"
         line = re.sub(r"^Q:\s?", "", line)  # Xóa tiền tố "Q: "
         line = re.sub(r"[0-9]+\. ", "", line)  # Xóa số thứ tự nếu có
     else:
