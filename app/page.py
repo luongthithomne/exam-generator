@@ -199,7 +199,6 @@ class GenerateExamPage(Page):
             # Chuyển dữ liệu thành DataFrame
             df = pd.DataFrame(flattened_data)
             st.table(df)
-            st.write(df['SL'])
             # Pivot table để chuyển các mức độ thành cột và tính tổng số lượng câu hỏi cho từng mức độ
             # df_pivot = df.pivot_table(index=['Sách', 'Bài', 'Chủ Đề', 'Yêu Cầu Cần Đạt'], columns='Mức Độ', values='SL', fill_value=0)
 
