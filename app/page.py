@@ -193,12 +193,12 @@ class GenerateExamPage(Page):
                         "Chủ Đề": ', '.join(info["Chủ Đề"]),
                         "Yêu Cầu Cần Đạt": ', '.join(info["Yêu Cầu Cần Đạt"]),
                         "Mức Độ": mucdo,
-                        "Số Lượng": count
+                        "Số Lượng": count if count is not None else 0
                     })
 
             # Chuyển dữ liệu thành DataFrame
             df = pd.DataFrame(flattened_data)
-            print(df.columns)
+            df['Số Lượng'] = df['Số Lượng'].fillna(0)
             # Gộp các hàng có cùng Sách, Bài, Chủ Đề, Yêu Cầu Cần Đạt
             grouped = df.pivot_table(
                 index=["Sách", "Bài", "Chủ Đề", "Yêu Cầu Cần Đạt"],
