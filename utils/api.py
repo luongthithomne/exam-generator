@@ -230,7 +230,7 @@ def get_questions(topics: str, number_of_questions: int, number_of_answers: int,
         additional_questions = random.sample(filtered_data[['CAUHOI', 'CAUTRALOI', 'DAPAN']].values.tolist(),
                                              additional_needed)
         for cauhoi, cautraloi, dapan in additional_questions:
-            cauhoi = sanitize_line(cauhoi)  # Làm sạch câu hỏi
+            #cauhoi = sanitize_line(cauhoi)  # Làm sạch câu hỏi
             answers = cautraloi.split('~')
             correct_answer_index = get_most_similar_answer(dapan, answers)
             question = Question(
