@@ -204,7 +204,7 @@ class GenerateExamPage(Page):
             grouped = df.pivot_table(
                 index=["Sách", "Bài", "Chủ Đề", "Yêu Cầu Cần Đạt"],
                 columns="Mức Độ",
-                values="SL",
+                #values="SL",
                 aggfunc="sum",
                 fill_value=0,  # Thay giá trị NaN bằng 0
             ).reset_index()
