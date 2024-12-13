@@ -7,6 +7,9 @@ output_file = 'C:\DEANTN\genarate_question\data.csv'
 # Đọc tệp Excel
 data = pd.read_excel(input_file)
 
+# Xóa chuỗi lặp "Câu X: Câu Y"
+data['CAUHOI'] = data['CAUHOI'].apply(lambda x: re.sub(r"(Câu\s+\d+:)\s*(Câu\s+\d+:)?", "Câu ", x))
+
 # Ghi tệp CSV
 data.to_csv(output_file, index=False, encoding='utf-8', sep=";")
 

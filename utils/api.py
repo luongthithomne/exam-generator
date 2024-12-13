@@ -210,9 +210,9 @@ def get_questions(topics: str, number_of_questions: int, number_of_answers: int,
         selected_questions = random.sample(available_questions, min(len(available_questions), count))
 
         # Create Question objects from the selected data
-        for i, (cauhoi, cautraloi, dapan) in enumerate(selected_questions):
-            answers = cautraloi.split('~')  # Split answers by '~'
-
+        for i, (cauhoi, cautraloi, dapan) in enumerate(selected_questions)
+            cauhoi = sanitize_line(cauhoi)  # Làm sạch câu hỏi
+            answers = cautraloi.split('~')  # Tách đáp án bởi dấu ~
             # Find the most similar answer to the correct answer using PhoBERT embeddings
             correct_answer_index = get_most_similar_answer(dapan, answers)
 
@@ -230,6 +230,7 @@ def get_questions(topics: str, number_of_questions: int, number_of_answers: int,
         additional_questions = random.sample(filtered_data[['CAUHOI', 'CAUTRALOI', 'DAPAN']].values.tolist(),
                                              additional_needed)
         for cauhoi, cautraloi, dapan in additional_questions:
+            cauhoi = sanitize_line(cauhoi)  # Làm sạch câu hỏi
             answers = cautraloi.split('~')
             correct_answer_index = get_most_similar_answer(dapan, answers)
             question = Question(
@@ -347,6 +348,7 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
         additional_needed = number_of_questions - len(questions)
         additional_questions = random.sample(filtered_data[['CAUHOI', 'CAUTRALOI', 'DAPAN']].values.tolist(), additional_needed)
         for cauhoi, cautraloi, dapan in additional_questions:
+            cauhoi = sanitize_line(cauhoi)  # Làm sạch câu hỏi
             answers = cautraloi.split('~')
             correct_answer_index = get_most_similar_answer(dapan, answers)
             question = Question(
