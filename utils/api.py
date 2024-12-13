@@ -97,9 +97,10 @@ def sanitize_line(line: str, is_question: bool) -> str:
     :return: Sanitized line
     """
     if is_question:
-        new_line = re.sub(r"[0-9]+.", " ", line, count=1)
+        line = re.sub(r"^Q:\s?", "", line)  # Xóa tiền tố "Q: " nếu tồn tại
+        new_line = re.sub(r"[0-9]+.", " ", line, count=1) # Xóa số thứ tự câu hỏi
     else:
-        new_line = re.sub(r"[a-eA-E][).]", " ", line, count=1)
+        new_line = re.sub(r"[a-eA-E][).]", " ", line, count=1) #xóa tiền tố đáp án 
 
     return new_line
 
