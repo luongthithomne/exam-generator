@@ -427,7 +427,7 @@ def response_to_questions(response: str) -> List[Question]:
             continue
 
         question_lines = question_text.splitlines()
-        if len(question_lines) < 2:  # Ensure there are enough lines for question and answers
+        if len(question_lines) < 2:  # Đảm bảo câu hỏi có đủ câu trả lời
             continue
 
         question = sanitize_line(question_lines[0], is_question=True)
@@ -438,7 +438,7 @@ def response_to_questions(response: str) -> List[Question]:
             continue
 
         answers[correct_answer] = answers[correct_answer].replace("**", "")
-        answers = list(map(lambda answer: answer.strip(), answers))
+        #answers = list(map(lambda answer: answer.strip(), answers))
 
         questions.append(Question(count, question.strip(), answers, correct_answer))
         count += 1
