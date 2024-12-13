@@ -198,7 +198,7 @@ class GenerateExamPage(Page):
 
             # Chuyển dữ liệu thành DataFrame
             df = pd.DataFrame(flattened_data)
-
+            print(df.columns)
             # Gộp các hàng có cùng Sách, Bài, Chủ Đề, Yêu Cầu Cần Đạt
             grouped = df.pivot_table(
                 index=["Sách", "Bài", "Chủ Đề", "Yêu Cầu Cần Đạt"],
