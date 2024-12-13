@@ -348,8 +348,10 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
         additional_needed = number_of_questions - len(questions)
         additional_questions = random.sample(filtered_data[['CAUHOI', 'CAUTRALOI', 'DAPAN']].values.tolist(), additional_needed)
         for cauhoi, cautraloi, dapan in additional_questions:
-            cauhoi = sanitize_line(cauhoi, is_question=True)  # Làm sạch câu hỏi
-            answers = [sanitize_line(answer, is_question=False) for answer in cautraloi.split('~')]  # Với đáp án
+            # Làm sạch câu hỏi
+            cauhoi = sanitize_line(cauhoi, is_question=True)  
+            # Làm sạch từng đáp án
+            answers = [sanitize_line(answer.strip(), is_question=False) for answer in cautraloi.split('~')]
             # Tiếp tục xử lý
             #answers = cautraloi.split('~')
             correct_answer_index = get_most_similar_answer(dapan, answers)
