@@ -198,16 +198,15 @@ class GenerateExamPage(Page):
 
             # Chuyển dữ liệu thành DataFrame
             df = pd.DataFrame(flattened_data)
-            df['SL'] = df['SL'].fillna(0)
 
             # Gộp các hàng có cùng Sách, Bài, Chủ Đề, Yêu Cầu Cần Đạt
             grouped = df.pivot_table(
                 index=["Sách", "Bài", "Chủ Đề", "Yêu Cầu Cần Đạt"],
                 columns="Mức Độ",
-                #values="SL",
                 aggfunc="sum",
                 fill_value=0,  # Thay giá trị NaN bằng 0
             ).reset_index()
+                #values="SL",
 
             # Đổi tên các cột để hiển thị rõ ràng
             grouped.columns.name = None  # Xóa tên của cột
