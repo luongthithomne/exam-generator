@@ -198,24 +198,24 @@ class GenerateExamPage(Page):
 
             # Chuyển dữ liệu thành DataFrame
             df = pd.DataFrame(flattened_data)
-            # st.table(df)
+            st.table(df)
             st.write(df['SL'])
             # Pivot table để chuyển các mức độ thành cột và tính tổng số lượng câu hỏi cho từng mức độ
-            df_pivot = df.pivot_table(index=['Sách', 'Bài', 'Chủ Đề', 'Yêu Cầu Cần Đạt'], columns='Mức Độ', values='SL', fill_value=0)
+            # df_pivot = df.pivot_table(index=['Sách', 'Bài', 'Chủ Đề', 'Yêu Cầu Cần Đạt'], columns='Mức Độ', values='SL', fill_value=0)
 
-            # Đặt lại index để có thể sử dụng các cột như một DataFrame thông thường
-            df_pivot.reset_index(inplace=True)
+            # # Đặt lại index để có thể sử dụng các cột như một DataFrame thông thường
+            # df_pivot.reset_index(inplace=True)
 
-            # Tùy chọn hiển thị: ghép các cột mức độ thành một chuỗi duy nhất
-            df_pivot['Mức Độ'] = df_pivot.apply(lambda row: '; '.join(
-                f'{col} - SL {row[col]}' for col in df_pivot.columns if col not in ['Sách', 'Bài', 'Chủ Đề', 'Yêu Cầu Cần Đạt']
-            ), axis=1)
+            # # Tùy chọn hiển thị: ghép các cột mức độ thành một chuỗi duy nhất
+            # df_pivot['Mức Độ'] = df_pivot.apply(lambda row: '; '.join(
+            #     f'{col} - SL {row[col]}' for col in df_pivot.columns if col not in ['Sách', 'Bài', 'Chủ Đề', 'Yêu Cầu Cần Đạt']
+            # ), axis=1)
 
-            # Chọn lại các cột cần thiết để hiển thị
-            df_final = df_pivot[['Sách', 'Bài', 'Chủ Đề', 'Yêu Cầu Cần Đạt', 'Mức Độ']]
+            # # Chọn lại các cột cần thiết để hiển thị
+            # df_final = df_pivot[['Sách', 'Bài', 'Chủ Đề', 'Yêu Cầu Cần Đạt', 'Mức Độ']]
 
-            # Hiển thị trên Streamlit
-            st.table(df_final)
+            # # Hiển thị trên Streamlit
+            # st.table(df_final)
 
 
 
