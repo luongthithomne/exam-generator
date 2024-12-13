@@ -8,6 +8,7 @@ from utils.api import get_questions, clarify_question, get_questions_from_bank
 from utils.generate_document import questions_to_pdf
 import pandas as pd
 import streamlit as st
+import re
 
 ROOT_PATH = '/mount/src/exam-generator'
 class PageEnum:
@@ -131,7 +132,7 @@ class GenerateExamPage(Page):
             
             # Choose Yêu Cầu Cần Đạt (multiple choice)
             yccd_options = data[data['BAI'] == selected_bai]['NOIDUNG_YCCD'].unique()
-            selected_yccd = st.multiselect("Chọn Yêu Cầu Cần Đạt", yccd_options, key="yccd_select", default=st.session_state.selected_yccd)
+            selected_yccd = st.multiselect("Chọn Yêu Cầu Cần Đạt", re.sub(r"~+$", "", yccd_options), key="yccd_select", default=st.session_state.selected_yccd)
 
             # Input number of questions for each level
             st.header("Nhập số lượng câu hỏi cho mức độ")
