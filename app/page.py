@@ -8,6 +8,7 @@ from utils.api import get_questions, clarify_question, get_questions_from_bank
 from utils.generate_document import questions_to_pdf
 import pandas as pd
 import streamlit as st
+import re
 
 ROOT_PATH = '/mount/src/exam-generator'
 class PageEnum:
@@ -131,8 +132,16 @@ class GenerateExamPage(Page):
             
             # Choose Yêu Cầu Cần Đạt (multiple choice)
             yccd_options = data[data['BAI'] == selected_bai]['NOIDUNG_YCCD'].unique()
-            selected_yccd = st.multiselect("Chọn Yêu Cầu Cần Đạt", yccd_options, key="yccd_select", default=st.session_state.selected_yccd)
+            # Làm sạch các chuỗi trong yccd_options bằng cách loại bỏ dấu ~ ở cuối
+            cleaned_yccd_options = [re.sub(r"~+$", "", yccd) for yccd in yccd_options]
 
+            # Sử dụng giá trị đã làm sạch cho multiselect
+            selected_yccd = st.multiselect(
+                "Chọn Yêu Cầu Cần Đạt",
+                cleaned_yccd_options,
+                key="yccd_select",
+                default=st.session_state.selected_yccd
+            )
             # Input number of questions for each level
             st.header("Nhập số lượng câu hỏi cho mức độ")
             for mucdo in st.session_state.questions_per_mucdo.keys():
@@ -193,27 +202,29 @@ class GenerateExamPage(Page):
                         "Chủ Đề": ', '.join(info["Chủ Đề"]),
                         "Yêu Cầu Cần Đạt": ', '.join(info["Yêu Cầu Cần Đạt"]),
                         "Mức Độ": mucdo,
-                        "Số Lượng": count
+                        "SL": count if count is not None else 0
                     })
 
             # Chuyển dữ liệu thành DataFrame
             df = pd.DataFrame(flattened_data)
+            if(not df.empty):
+                # Gộp các hàng có cùng Sách, Bài, Chủ Đề, Yêu Cầu Cần Đạt
+                grouped = df.pivot_table(
+                    index=["Sách", "Bài", "Chủ Đề", "Yêu Cầu Cần Đạt"],
+                    columns="Mức Độ",
+                    values="SL",
+                    aggfunc="sum",
+                    fill_value=0,  # Thay giá trị NaN bằng 0
+                ).reset_index()
 
-            # Gộp các hàng có cùng Sách, Bài, Chủ Đề, Yêu Cầu Cần Đạt
-            grouped = df.pivot_table(
-                index=["Sách", "Bài", "Chủ Đề", "Yêu Cầu Cần Đạt"],
-                columns="Mức Độ",
-                values="Số Lượng",
-                aggfunc="sum",
-                fill_value=0,  # Thay giá trị NaN bằng 0
-            ).reset_index()
+                # Đổi tên các cột để hiển thị rõ ràng
+                grouped.columns.name = None  # Xóa tên của cột
+                grouped = grouped.rename(columns={"Thông hiểu": "TH", "Nhận biết": "NB", "Vận dụng": "VD"})
 
-            # Đổi tên các cột để hiển thị rõ ràng
-            grouped.columns.name = None  # Xóa tên của cột
-            grouped = grouped.rename(columns={"Thông hiểu": "TH", "Nhận biết": "NB", "Vận dụng": "VD"})
-
-            # Hiển thị dưới dạng bảng
-            st.table(grouped)
+                # Hiển thị dưới dạng bảng
+                st.table(grouped)
+            else:
+                st.table(df)
 
 
 
