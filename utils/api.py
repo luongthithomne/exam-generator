@@ -210,7 +210,7 @@ def get_questions(topics: str, number_of_questions: int, number_of_answers: int,
         selected_questions = random.sample(available_questions, min(len(available_questions), count))
 
         # Create Question objects from the selected data
-        for i, (cauhoi, cautraloi, dapan) in enumerate(selected_questions)
+        for i, (cauhoi, cautraloi, dapan) in enumerate(selected_questions):
             cauhoi = sanitize_line(cauhoi)  # Làm sạch câu hỏi
             answers = cautraloi.split('~')  # Tách đáp án bởi dấu ~
             # Find the most similar answer to the correct answer using PhoBERT embeddings
