@@ -370,6 +370,16 @@ class QuestionsPage(Page):
         Render the page
         """
         st.title("BÀI THI TRỰC TIẾP")
+        
+        # Kiểm tra nếu không có câu hỏi
+        if not app.questions or len(app.questions) == 0:
+            st.error("Không có câu hỏi nào được tạo. Vui lòng quay lại để tạo câu hỏi.")
+            return
+
+        # Kiểm tra chỉ mục hợp lệ
+        if self.number_of_question < 0 or self.number_of_question >= len(app.questions):
+            st.error("Không thể truy cập câu hỏi. Chỉ mục không hợp lệ.")
+            return
 
         question = app.questions[self.number_of_question]
 
