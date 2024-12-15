@@ -191,34 +191,17 @@ def get_questions(topics: str, number_of_questions: int, number_of_answers: int,
 
     data = pd.read_csv(ROOT_PATH + '/data.csv', delimiter=';', on_bad_lines='skip')    
     # Filter the data based on selected Sách, Bài, and Chủ Đề
-    # filtered_data = data[
-    #     (data['SACH'].isin(sach)) &  # Changed from == to isin for list of Sách
-    #     (data['BAI'].isin(bai)) &
-    #     (data['CHUDE'].isin(chude))
-    #     ]
-    # Tạo các điều kiện lọc dựa trên thông tin nhập
-    print(sach)
-    sach_condition = data['SACH'].isin(sach)
-    print('condition sach')
-    print(sach_condition)
-    bai_condition = data['BAI'].isin(bai)
-    print('condition bai')
-    print(bai_condition)
-    chude_condition = data['CHUDE'].isin(chude)
-    print('condition chude')
-    print(chude_condition)
-    
-    
-    # Áp dụng tất cả các điều kiện lọc vào DataFrame
-    filtered_data = data[sach_condition & bai_condition & chude_condition]
+    filtered_data = data[
+        (data['SACH'].isin(sach)) &  # Changed from == to isin for list of Sách
+        (data['BAI'].isin(bai)) &
+        (data['CHUDE'].isin(chude))
+        ]
 
 
     questions = []
-    print(filtered_data)
     for mucdo_level, count in mucdo:
         # Filter for the current Mức Độ
         mucdo_filtered_data = filtered_data[filtered_data['MUCDO'] == mucdo_level]
-        print(mucdo_filtered_data)
         # Extract the list of questions (CAUHOI) and answers (CAUTRALOI) for this Mức Độ
         available_questions = mucdo_filtered_data[['CAUHOI', 'CAUTRALOI', 'DAPAN']].values.tolist()
 
@@ -240,9 +223,6 @@ def get_questions(topics: str, number_of_questions: int, number_of_answers: int,
                 correct_answer=correct_answer_index
             )
             questions.append(question)
-    print('------------------ start')
-    print(questions)
-    print('------------------ end')
     
     if len(questions) < number_of_questions:
         additional_needed = number_of_questions - len(questions)
