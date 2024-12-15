@@ -238,14 +238,15 @@ class GenerateExamPage(Page):
         total_questions = sum(sum(info['Số lượng câu hỏi'].values()) for info in st.session_state.selected_bai_info)
         st.markdown(f"### Tổng số câu hỏi: {total_questions}")
 
-        number_of_answers = st.number_input(
-            "Số lượng đáp án",
-            min_value=3,
-            max_value=5,
-            value=4,
-            help=f"Tổng số câu hỏi: {total_questions}"
-        )
-
+        # number_of_answers = st.number_input(
+        #     "Số lượng đáp án",
+        #     min_value=3,
+        #     max_value=5,
+        #     value=4,
+        #     help=f"Tổng số câu hỏi: {total_questions}"
+        # )
+        number_of_answers = 4
+        
         if st.button("Tạo đề thi từ ngân hàng câu hỏi", help="Generate the questions according to the parameters"):
             st.warning("Hệ thống đang tạo câu hỏi. Bạn vui lòng chờ trong giây lát...")
 
