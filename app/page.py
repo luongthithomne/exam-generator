@@ -160,7 +160,7 @@ class GenerateExamPage(Page):
                     )
 
             # Option to continue selecting more bài
-            if st.button("Tiếp Tục Chọn Bài"):
+            if st.button("Thực hiện"):
                 # Clear current selections
                 st.session_state.selected_bai_info.append({
                     "Sách": selected_sach,
