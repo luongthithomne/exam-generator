@@ -122,7 +122,7 @@ class GenerateExamPage(Page):
         if selected_sach:
 
              # Choose 'Chủ Đề' (single choice)
-            chude_options = data[data['SACH'] == selected_bai]['CHUDE'].unique()
+            chude_options = data[data['SACH'] == selected_sach]['CHUDE'].unique()
             selected_chude = st.selectbox("Chọn Chủ Đề", chude_options, key="chude_select")
 
             # # Choose Chủ Đề (multiple choice)
