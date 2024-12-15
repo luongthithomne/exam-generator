@@ -329,7 +329,7 @@ class GenerateExamPage(Page):
                     )
 
             with center:
-                if st.button("Lưu đề thi", help="Đã lưu đề thi vào tệp JSON"):
+                if st.button("Lưu đề thi", help="Khi chọn chức năng này, hệ thống sẽ lưu lại đề thi của bạn. Nhằm mục đích đa dạng hoá các đề thi sinh ra tiếp theo tránh trùng lặp"):
                     # Prepare the exam data to save
                     if app.questions is not None:  # Ensure app.questions is not None
                         # Create a new entry with the current timestamp and questions
