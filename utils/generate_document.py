@@ -4,6 +4,8 @@ from fpdf import FPDF
 from model.question import Question
 
 
+from fpdf import FPDF
+
 class PDF(FPDF):
     def __init__(self):
         super().__init__()
@@ -15,15 +17,18 @@ class PDF(FPDF):
         if self.first_page:  # Chỉ in header ở trang đầu tiên
             self.add_font('DejaVuSans', '', 'dejavu-sans/DejaVuSans.ttf', uni=True)
             self.add_font('DejaVuSans', 'B', 'dejavu-sans/DejaVuSans-Bold.ttf', uni=True)
+            
             self.set_font('DejaVuSans', '', 12)
-            self.cell(0, 10, 'ĐỀ B-K11-KIỂM TRA GIỮA KÌ - HK1 - 2024.2025', 0, 1, 'C')
-            self.cell(0, 10, 'Năm học: ..................', 0, 1, 'C')
-            self.cell(0, 10, 'Trường: Trường THPT Bà Điểm', 0, 1, 'C')
-            self.cell(0, 10, 'Môn: Tin học', 0, 1, 'C')
-            self.cell(0, 10, 'Họ và tên học sinh: ..................', 0, 1, 'L')
-            self.cell(0, 10, 'SBD: ..................', 0, 1, 'L')
-            self.cell(0, 10, 'Lớp: 11 ..................', 0, 1, 'L')
-            self.cell(0, 10, 'Mã đề: 304', 0, 1, 'L')
+            self.cell(0, 10, 'SỞ GIÁO DỤC VÀ ĐÀO TẠO', 0, 1, 'C')
+            self.cell(0, 10, 'THÀNH PHỐ HỒ CHÍ MINH', 0, 1, 'C')
+            self.cell(0, 10, 'TRƯỜNG THPT BÀ ĐIỂM', 0, 1, 'C')
+            
+            self.set_font('DejaVuSans', 'B', 12)
+            self.cell(0, 10, 'ĐỀ KIỂM TRA CUỐI HỌC KỲ I', 0, 1, 'C')
+            self.cell(0, 10, 'MÔN: TIN HỌC - KHỐI 10', 0, 1, 'C')
+            self.cell(0, 10, 'Thời gian làm bài: 45 phút', 0, 1, 'C')
+            
+            self.cell(0, 10, 'Mã đề: THOM', 0, 1, 'C')
             self.cell(0, 10, '', 0, 1)  # Dòng trống
             self.first_page = False  # Đánh dấu là không còn là trang đầu tiên
 
