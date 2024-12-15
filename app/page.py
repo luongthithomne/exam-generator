@@ -297,9 +297,9 @@ class GenerateExamPage(Page):
                     topics="",
                     number_of_questions=total_questions,
                     number_of_answers=number_of_answers,
-                    sach=[sach for sublist in exam_params["Sách"] for sach in sublist],  # Flatten list
+                    sach=exam_params["Sách"],  # Flatten list
                     bai=exam_params["Bài"],
-                    chude=[chude for sublist in exam_params["Chủ Đề"] for chude in sublist],  # Flatten list
+                    chude=exam_params["Chủ Đề"],  # Flatten list
                     mucdo=[(mucdo, count) for mucdo, count in exam_params["Số lượng câu hỏi"].items() if count > 0],
                     yccd=[yccd for sublist in exam_params["Yêu Cầu Cần Đạt"] for yccd in sublist], # Flatten list
                     contains_num=3,
