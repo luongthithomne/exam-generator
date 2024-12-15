@@ -246,7 +246,7 @@ class GenerateExamPage(Page):
         #     help=f"Tổng số câu hỏi: {total_questions}"
         # )
         number_of_answers = 4
-        
+
         if st.button("Tạo đề thi từ ngân hàng câu hỏi", help="Generate the questions according to the parameters"):
             st.warning("Hệ thống đang tạo câu hỏi. Bạn vui lòng chờ trong giây lát...")
 
@@ -403,7 +403,7 @@ class QuestionsPage(Page):
 
         if self.number_of_question != 0:
             with left:
-                if st.button("Trờ về", help="Trờ về câu hỏi trước"):
+                if st.button("Trở về", help="Trở về câu hỏi trước"):
                     self.__change_question(self.number_of_question - 1)
 
         with center:

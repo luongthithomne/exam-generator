@@ -39,7 +39,7 @@ class PDF(FPDF):
             
             self.cell(0, 10, 'Họ và tên học sinh: ..................', 0, 1, 'L')
             self.cell(0, 10, 'SBD: ..................', 0, 1, 'L')
-            self.cell(0, 10, 'Lớp: 11 ..................', 0, 1, 'L')
+            self.cell(0, 10, 'Lớp: ..................', 0, 1, 'L')
             self.cell(0, 10, '', 0, 1)  # Dòng trống
             self.first_page = False  # Đánh dấu là không còn là trang đầu tiên
 
