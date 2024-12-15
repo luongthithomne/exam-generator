@@ -98,14 +98,20 @@ def create_pdf(questions: List[Question], filename: str):
     pdf.add_page()
     pdf.add_font('DejaVuSans', '', 'dejavu-sans/DejaVuSans.ttf', uni=True)
     pdf.set_font('DejaVuSans', '', 12)
-
+    print('---------- PDF')
+    print(questions)
+    print('0------ PDF')
     for question in questions:
+        print(question)
+        print('-----quest')
         pdf.set_font('DejaVuSans', 'B', 12)
         pdf.multi_cell(190, 10, f"Câu {question.id}: {question.question}", 0, 'L')
         y_after_question = pdf.get_y()  # Lấy vị trí y hiện tại sau khi in câu hỏi
 
         pdf.set_font('DejaVuSans', '', 12)
         for index, answer in enumerate(question.answers):
+            print('-----------')
+            print(answer)
             pdf.set_xy(10, y_after_question)  # Đặt lại vị trí x bắt đầu in câu trả lời
             pdf.multi_cell(190, 10, f"{chr(65 + index)}. {answer}", 0, 'L')
             y_after_question = pdf.get_y()  # Cập nhật vị trí y sau mỗi câu trả lời
