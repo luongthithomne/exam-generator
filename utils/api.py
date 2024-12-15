@@ -249,8 +249,22 @@ def get_questions(topics: str, number_of_questions: int, number_of_answers: int,
         get_questions_from_bank(topics, number_of_questions, number_of_answers, sach, bai, chude, mucdo, yccd,
                                 contains_num, 0.5)
     else:
-        return questions
-    return questions
+        new_ques = []
+        for ques in questions:
+            quesv2 = Question(id=ques.id
+                              ,question=sanitize_line(ques.question,is_question=True)
+                              ,answers=ques.answers
+                              ,correct_answer=ques.correct_answer)
+            new_ques.append(quesv2)
+        return new_ques
+    new_ques = []
+    for ques in questions:
+        quesv2 = Question(id=ques.id
+                            ,question=sanitize_line(ques.question,is_question=True)
+                            ,answers=ques.answers
+                            ,correct_answer=ques.correct_answer)
+        new_ques.append(quesv2)
+    return new_ques
 
 
 def clarify_question(question: Question) -> str:

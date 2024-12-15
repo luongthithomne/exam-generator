@@ -451,13 +451,13 @@ class ResultsPage:
         """
         Render the page
         """
-        st.title("Results")
+        st.title("Kết quả")
 
         num_correct = self.__get_correct_answers(app)
 
-        st.write(f"### Number of questions: {len(app.questions)}")
-        st.write(f"### Number of correct answers: {num_correct}")
-        st.write(f"### Percentage of correct answers: {num_correct / len(app.questions) * 100:.2f}%")
+        st.write(f"### Số lượng câu hỏi: {len(app.questions)}")
+        st.write(f"### Số câu trả lời đúng: {num_correct}")
+        st.write(f"### Tỉ lệ trả lời đúng: {num_correct / len(app.questions) * 100:.2f}%")
 
         for index, question in enumerate(app.questions):
             self.__render_question(question, app.get_answer(index))
