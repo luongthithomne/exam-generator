@@ -402,8 +402,14 @@ class QuestionsPage(Page):
         left, center, right = st.columns(3)
 
         if self.number_of_question != 0:
+            def clear_session_state():
+                for key in st.session_state.keys():
+                    del st.session_state[key]
+
             with left:
                 if st.button("Trở về", help="Trở về câu hỏi trước"):
+                    clear_session_state()  # Call the function to clear session state
+                    st.rerun()  # Reload the page to allow new selections
                     self.__change_question(self.number_of_question - 1)
 
         with center:
