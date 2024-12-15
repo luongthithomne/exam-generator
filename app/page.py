@@ -131,7 +131,7 @@ class GenerateExamPage(Page):
             
             if selected_chude:
                 # Create a select box to choose a single 'Bài'
-                bai_options = data[data['CHUDE'].isin(selected_chude)]['BAI'].unique()
+                bai_options = data[data['CHUDE'] == selected_chude]['BAI'].unique()
                 selected_bai = st.selectbox("Chọn Bài", bai_options, key="bai_select")
 
                 
