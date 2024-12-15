@@ -116,42 +116,50 @@ class GenerateExamPage(Page):
             st.session_state.selected_yccd = []
 
         # Create combo box to select multiple 'Sách'
-        selected_sach = st.multiselect("Chọn Sách", data['SACH'].unique(), key="sach_select", default=st.session_state.selected_sach)
-
+        #selected_sach = st.multiselect("Chọn Sách", data['SACH'].unique(), key="sach_select", default=st.session_state.selected_sach)
+        selected_sach = st.selectbox("Chọn Sách", data['SACH'].unique(), key="sach_select", default=st.session_state.selected_sach)
         # Logic for selecting bài
         if selected_sach:
 
-            # Choose Chủ Đề (multiple choice)
-            chude_options = data[data['SACH'].isin(selected_sach)]['CHUDE'].unique()  #data[data['BAI'] == selected_bai]['CHUDE'].unique()
-            selected_chude = st.multiselect("Chọn Chủ Đề", chude_options, key="chude_select", default=st.session_state.selected_chude)
-            
-            # Create a select box to choose a single 'Bài'
-            bai_options = data[data['CHUDE'].isin(selected_chude)]['BAI'].unique()
-            selected_bai = st.selectbox("Chọn Bài", bai_options, key="bai_select")
+             # Choose 'Chủ Đề' (single choice)
+            chude_options = data[data['SACH'] == selected_bai]['CHUDE'].unique()
+            selected_chude = st.selectbox("Chọn Chủ Đề", chude_options, key="chude_select")
 
+            # # Choose Chủ Đề (multiple choice)
+            # chude_options = data[data['SACH'].isin(selected_sach)]['CHUDE'].unique()  #data[data['BAI'] == selected_bai]['CHUDE'].unique()
+            # selected_chude = st.multiselect("Chọn Chủ Đề", chude_options, key="chude_select", default=st.session_state.selected_chude)
             
-            # Choose Yêu Cầu Cần Đạt (multiple choice)
-            yccd_options = data[data['BAI'] == selected_bai]['NOIDUNG_YCCD'].unique()
-            # Làm sạch các chuỗi trong yccd_options bằng cách loại bỏ dấu ~ ở cuối
-            cleaned_yccd_options = [re.sub(r"~+$", "", yccd) for yccd in yccd_options]
+            if selected_chude:
+                bai_options = data[data['CHUDE'] == selected_sach]['BAI'].unique()
+                selected_bai = st.selectbox("Chọn Bài", bai_options, key="bai_select")
 
-            # Sử dụng giá trị đã làm sạch cho multiselect
-            selected_yccd = st.multiselect(
-                "Chọn Yêu Cầu Cần Đạt",
-                cleaned_yccd_options,
-                key="yccd_select",
-                default=st.session_state.selected_yccd
-            )
-            # Input number of questions for each level
-            st.header("Nhập số lượng câu hỏi cho mức độ")
-            for mucdo in st.session_state.questions_per_mucdo.keys():
-                st.session_state.questions_per_mucdo[mucdo] = st.number_input(
-                    f"Số lượng câu hỏi cho mức độ '{mucdo}'",
-                    min_value=0,
-                    value=st.session_state.questions_per_mucdo[mucdo],
-                    step=1,
-                    key=f"questions_{mucdo}"
+                # Create a select box to choose a single 'Bài'
+                bai_options = data[data['CHUDE'].isin(selected_chude)]['BAI'].unique()
+                selected_bai = st.selectbox("Chọn Bài", bai_options, key="bai_select")
+
+                
+                # Choose Yêu Cầu Cần Đạt (multiple choice)
+                yccd_options = data[data['BAI'] == selected_bai]['NOIDUNG_YCCD'].unique()
+                # Làm sạch các chuỗi trong yccd_options bằng cách loại bỏ dấu ~ ở cuối
+                cleaned_yccd_options = [re.sub(r"~+$", "", yccd) for yccd in yccd_options]
+
+                # Sử dụng giá trị đã làm sạch cho multiselect
+                selected_yccd = st.multiselect(
+                    "Chọn Yêu Cầu Cần Đạt",
+                    cleaned_yccd_options,
+                    key="yccd_select",
+                    default=st.session_state.selected_yccd
                 )
+                # Input number of questions for each level
+                st.header("Nhập số lượng câu hỏi cho mức độ")
+                for mucdo in st.session_state.questions_per_mucdo.keys():
+                    st.session_state.questions_per_mucdo[mucdo] = st.number_input(
+                        f"Số lượng câu hỏi cho mức độ '{mucdo}'",
+                        min_value=0,
+                        value=st.session_state.questions_per_mucdo[mucdo],
+                        step=1,
+                        key=f"questions_{mucdo}"
+                    )
 
             # Option to continue selecting more bài
             if st.button("Tiếp Tục Chọn Bài"):
