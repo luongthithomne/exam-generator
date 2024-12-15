@@ -479,5 +479,114 @@
                 "correct_answer": 2
             }
         ]
+    },
+    {
+        "timestamp": "2024-12-15 12:48:12",
+        "questions": [
+            {
+                "id": 1,
+                "question": "Để lưu trữ file ảnh lên dịch vụ lưu trữ đám mây, điện thoại thông minh có thực hiện được không?",
+                "answers": [
+                    "Thực hiện được mọi lúc.",
+                    "Không thực hiện được.",
+                    "Chỉ thực hiện được khi điện thoại có kết nối với Internet.",
+                    "Chỉ thực hiện được khi điện thoại mất sóng."
+                ],
+                "correct_answer": 2
+            },
+            {
+                "id": 2,
+                "question": "Nút khóa phía bên thân điện thoại thông minh dùng để",
+                "answers": [
+                    " Khóa máy.",
+                    " Bật máy hoặc tắt màn hình.",
+                    " Tắt nguồn.",
+                    " Mở khóa điện thoại."
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 3,
+                "question": "Định nghĩa nào về Byte là đúng?",
+                "answers": [
+                    "Là một kí tự.",
+                    "Là đơn vị dữ liệu 8 bit.",
+                    "Là đơn vị đo tốc độ của máy tính.",
+                    "Là một dãy 8 chữ số."
+                ],
+                "correct_answer": 3
+            },
+            {
+                "id": 4,
+                "question": "Đâu không phải chức năng thiết yếu của điện thoại",
+                "answers": [
+                    " Gọi điện.",
+                    " Nhắn tin.",
+                    " Quản lí danh bạ.",
+                    " Gửi Email."
+                ],
+                "correct_answer": 3
+            },
+            {
+                "id": 5,
+                "question": "Laptop và điện thoại thông minh có thể trao đổi dữ liệu với nhau được không?",
+                "answers": [
+                    "Trao đổi được mọi lúc.",
+                    "Không trao đổi được.",
+                    "Chỉ trao đổi được khi điện thoại và laptop có kết nối với nhau.",
+                    "Chỉ trao đổi được khi điện thoại mất kết nối."
+                ],
+                "correct_answer": 2
+            },
+            {
+                "id": 6,
+                "question": "Đặc điểm quan trọng của PDA là",
+                "answers": [
+                    " Có bộ nhớ lớn, có khả năng kết nối wifi.",
+                    " Nhỏ gọn, có khả năng kết nối mạng.",
+                    " Có chức năng liên lạc.",
+                    " Có khả năng kết nối mạng."
+                ],
+                "correct_answer": 1
+            },
+            {
+                "id": 7,
+                "question": "Số phát biểu đúng là",
+                "answers": [
+                    "Có thể sử dụng ứng dụng Tin nhắn để nhắn một tin cho nhiều người một lúc.",
+                    "Bộ nhớ trong hay Internal Memory chính là khái niệm chỉ những loại bộ nhớ được lắp đặt ngay sau khi mua những thiết bị ví dụ như máy tính bảng, điện thoại hoặc máy tính.",
+                    "Với tiện ích đặt lịch, nhắc hẹn em có thế đặt các sự kiện và xác định đặt một lần hay định kì hàng ngày, các ngày nào đó trong tuần.",
+                    "Thư mục ảnh là một ứng dụng quản lí tệp.",
+                    " 3.",
+                    " 1.",
+                    " 4.",
+                    " 2.",
+                    "4. VẬN DỤNG CAO (1 câu)"
+                ],
+                "correct_answer": 7
+            },
+            {
+                "id": 8,
+                "question": "Kể tên các ứng dụng có trong hình theo thứ tự từ trái sang phải",
+                "answers": [
+                    " Gmail, Cài đặt, Lịch, Báo thức.",
+                    " Email, Cài đặt, Sự kiện, Báo thức.",
+                    " Email, Cài đặt, Lịch, Đồng hồ.",
+                    " Gmail, Cài đặt, Lịch hẹn, Đồng hồ."
+                ],
+                "correct_answer": 2
+            },
+            {
+                "id": 9,
+                "question": "Phát biểu nào dưới đây đúng",
+                "answers": [
+                    " Với điện thoại thông mình, chúng ta có thể xem thông tin chi tiết của một file ảnh (thời gian lưu, kích thước, độ lớn, vị trí lưu trữ).",
+                    " Chỉ có hai cửa hàng ứng dụng là CH Play cho hệ điều hành Android và App Store cho hệ điều hành iOS.",
+                    " Điện thoại Samsung có thể sử dụng hệ điều hành Android hoặc iOS.",
+                    " Hầu hết các thiết bị sử dụng hệ điều hành Android có trang bị nút Home vật lí."
+                ],
+                "correct_answer": 0
+            }
+        ]
     }
 ]

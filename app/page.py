@@ -11,6 +11,7 @@ import streamlit as st
 import re
 
 ROOT_PATH = '/mount/src/exam-generator'
+# ROOT_PATH = '/Users/taihv/Documents/1.Primary/Thom/Final/gitv2/exam-gen1erator'
 class PageEnum:
     """
     Enum for pages
@@ -178,6 +179,8 @@ class GenerateExamPage(Page):
                     st.session_state.questions_per_mucdo[mucdo] = 0  # Reset question counts
 
                 st.rerun()  # Reload the page to allow new selections
+            
+                # Clear session state for the next selection
             def clear_session_state():
                 for key in st.session_state.keys():
                     del st.session_state[key]
@@ -202,16 +205,17 @@ class GenerateExamPage(Page):
             for info in selected_info:
                 for mucdo, count in info['Số lượng câu hỏi'].items():
                     flattened_data.append({
-                        "Sách": ', '.join(info["Sách"]),
+                        "Sách": info["Sách"],
                         "Bài": info["Bài"],
-                        "Chủ Đề": ', '.join(info["Chủ Đề"]),
-                        "Yêu Cầu Cần Đạt": ', '.join(info["Yêu Cầu Cần Đạt"]),
+                        "Chủ Đề": info["Chủ Đề"],
+                        "Yêu Cầu Cần Đạt": '\n\n'.join(info["Yêu Cầu Cần Đạt"]),
                         "Mức Độ": mucdo,
                         "SL": count if count is not None else 0
                     })
 
             # Chuyển dữ liệu thành DataFrame
             df = pd.DataFrame(flattened_data)
+
             if(not df.empty):
                 # Gộp các hàng có cùng Sách, Bài, Chủ Đề, Yêu Cầu Cần Đạt
                 grouped = df.pivot_table(
@@ -246,6 +250,7 @@ class GenerateExamPage(Page):
             st.warning("Hệ thống đang tạo câu hỏi. Bạn vui lòng chờ trong giây lát...")
 
             # Prepare dictionary for all selected information
+            print('---------------------------------------------------------------- start')
             exam_params = {
                 "Sách": [info["Sách"] for info in st.session_state.selected_bai_info],
                 "Bài": [info["Bài"] for info in st.session_state.selected_bai_info],
@@ -256,15 +261,16 @@ class GenerateExamPage(Page):
                     for mucdo in st.session_state.questions_per_mucdo.keys()
                 }
             }
-
+            print('---------------------------------------------------------------- end')
+            print(exam_params)
             try:
                 app.questions = get_questions(
                     topics="",
                     number_of_questions=total_questions,
                     number_of_answers=number_of_answers,
-                    sach=[sach for sublist in exam_params["Sách"] for sach in sublist],  # Flatten list
+                    sach=exam_params["Sách"],  # Flatten list
                     bai=exam_params["Bài"],
-                    chude=[chude for sublist in exam_params["Chủ Đề"] for chude in sublist],  # Flatten list
+                    chude=exam_params["Chủ Đề"],  # Flatten list
                     mucdo=[(mucdo, count) for mucdo, count in exam_params["Số lượng câu hỏi"].items() if count > 0],
                     yccd=[yccd for sublist in exam_params["Yêu Cầu Cần Đạt"] for yccd in sublist] , # Flatten list
                     contains_num=3,
