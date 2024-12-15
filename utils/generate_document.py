@@ -29,24 +29,25 @@ class PDF(FPDF):
             self.cell(90, 10, 'MÔN: TIN HỌC - KHỐI 10', 0, 1, 'R')
             
             # Định dạng hàng thứ ba
-            self.set_font('DejaVuSans', '', 12)
+            self.set_font('DejaVuSans', 'B', 12)
             self.cell(100, 10, 'TRƯỜNG THPT BÀ ĐIỂM', 0, 0, 'L')
+            self.set_font('DejaVuSans', '', 12)
             self.cell(90, 10, 'Thời gian làm bài:....phút', 0, 1, 'R')
 
             # Mã đề, căn phải
             self.set_font('DejaVuSans', 'B', 12)
             self.cell(0, 10, 'Mã đề: ..........', 0, 1, 'R')
             
-            self.cell(0, 10, 'Họ và tên học sinh: ..................', 0, 1, 'L')
-            self.cell(0, 10, 'SBD: ..................', 0, 1, 'L')
-            self.cell(0, 10, 'Lớp: ..................', 0, 1, 'L')
+            self.cell(0, 10, 'Họ và tên học sinh: .........................................', 0, 1, 'L')
+            self.cell(0, 10, 'SBD: .........................................', 0, 1, 'L')
+            self.cell(0, 10, 'Lớp: .........................................', 0, 1, 'L')
             self.cell(0, 10, '', 0, 1)  # Dòng trống
             self.first_page = False  # Đánh dấu là không còn là trang đầu tiên
 
     def footer(self):
         self.set_y(-15)
         self.set_font('DejaVuSans', '', 8)
-        self.cell(0, 10, f'Trang {self.page_no()}', 0, 0, 'C')
+        self.cell(0, 10, f'Trang {self.page_no()}', 0, 0, 'R')
 
 
 # def create_pdf(questions: List[Question], filename: str):

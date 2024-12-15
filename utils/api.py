@@ -71,7 +71,7 @@ def prepare_prompt(topics: str, number_of_questions: int, number_of_answers: int
 
 
 def prepare_prompt_regenerate(questions: List[Question]) -> str:
-    prompt = "Dựa trên các câu hỏi đã có, hãy tạo ra các câu hỏi tương đương với cùng thông tin nhưng được diễn đạt khác. Dưới đây là format yêu cầu:\n\n"
+    prompt = "Dựa trên các câu hỏi đã có, hãy tạo ra các câu hỏi tương đương với cùng thông tin nhưng được diễn đạt khác. Dưới đây là câu hỏi và câu trả lời:\n\n"
     for q in questions:
         prompt += f"Q: {q.question}\n"
         for i, answer in enumerate(q.answers):
@@ -80,6 +80,7 @@ def prepare_prompt_regenerate(questions: List[Question]) -> str:
             else:
                 prompt += f"{answer}\n"
         prompt += "\n"
+    prompt += "Đảm bảo các câu hỏi rõ ràng và không chứa định dạng sai như thừa ký tự hay dấu không cần thiết. Ví dụ câu hỏi: 'Những câu phát biểu nào sau đây đúng?' phải được viết rõ ràng và có đáp án hợp lệ. cho mỗi câu hỏi. Đáp án đúng phải được bôi đậm (bao quanh bởi **). Chỉ tạo câu hỏi và câu trả lời, không tạo đề thi hoàn chỉnh. Chỉ cần hiển thị câu hỏi và câu trả lời đúng format là được."
     return prompt
     # return (
     #     f"Tạo một đề thi trắc nghiệm gồm {number_of_questions} câu hỏi với {number_of_answers} câu trả lời "
