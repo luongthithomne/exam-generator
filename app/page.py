@@ -117,7 +117,7 @@ class GenerateExamPage(Page):
 
         # Create combo box to select multiple 'Sách'
         #selected_sach = st.multiselect("Chọn Sách", data['SACH'].unique(), key="sach_select", default=st.session_state.selected_sach)
-        selected_sach = st.selectbox("Chọn Sách", data['SACH'].unique(), key="sach_select", default=st.session_state.selected_sach)
+        selected_sach = st.selectbox("Chọn Sách", data['SACH'].unique(), key="sach_select")
         # Logic for selecting bài
         if selected_sach:
 
@@ -130,9 +130,6 @@ class GenerateExamPage(Page):
             # selected_chude = st.multiselect("Chọn Chủ Đề", chude_options, key="chude_select", default=st.session_state.selected_chude)
             
             if selected_chude:
-                bai_options = data[data['CHUDE'] == selected_sach]['BAI'].unique()
-                selected_bai = st.selectbox("Chọn Bài", bai_options, key="bai_select")
-
                 # Create a select box to choose a single 'Bài'
                 bai_options = data[data['CHUDE'].isin(selected_chude)]['BAI'].unique()
                 selected_bai = st.selectbox("Chọn Bài", bai_options, key="bai_select")
