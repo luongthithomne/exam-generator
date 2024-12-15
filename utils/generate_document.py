@@ -19,21 +19,27 @@ class PDF(FPDF):
             # Định dạng hàng đầu tiên: Căn trái và căn phải
             self.set_font('DejaVuSans', '', 12)
             self.cell(100, 10, 'SỞ GIÁO DỤC VÀ ĐÀO TẠO', 0, 0, 'L')
-            self.cell(90, 10, 'ĐỀ KIỂM TRA CUỐI HỌC KỲ I', 0, 1, 'R')
+            self.set_font('DejaVuSans', 'B', 12)
+            self.cell(90, 10, 'ĐỀ KIỂM TRA .......................', 0, 1, 'R')
             
             # Định dạng hàng thứ hai
+            self.set_font('DejaVuSans', '', 12)
             self.cell(100, 10, 'THÀNH PHỐ HỒ CHÍ MINH', 0, 0, 'L')
+            self.set_font('DejaVuSans', 'B', 12)
             self.cell(90, 10, 'MÔN: TIN HỌC - KHỐI 10', 0, 1, 'R')
             
             # Định dạng hàng thứ ba
+            self.set_font('DejaVuSans', '', 12)
             self.cell(100, 10, 'TRƯỜNG THPT BÀ ĐIỂM', 0, 0, 'L')
-            self.cell(90, 10, 'Thời gian làm bài: 45 phút', 0, 1, 'R')
+            self.cell(90, 10, 'Thời gian làm bài:....phút', 0, 1, 'R')
 
+            # Mã đề, căn phải
+            self.set_font('DejaVuSans', 'B', 12)
+            self.cell(0, 10, 'Mã đề: ..........', 0, 1, 'R')
             
             self.cell(0, 10, 'Họ và tên học sinh: ..................', 0, 1, 'L')
             self.cell(0, 10, 'SBD: ..................', 0, 1, 'L')
             self.cell(0, 10, 'Lớp: 11 ..................', 0, 1, 'L')
-            self.cell(0, 10, 'Mã đề: 304', 0, 1, 'L')
             self.cell(0, 10, '', 0, 1)  # Dòng trống
             self.first_page = False  # Đánh dấu là không còn là trang đầu tiên
 
