@@ -246,7 +246,7 @@ def get_questions(topics: str, number_of_questions: int, number_of_answers: int,
 
     flagcontinue, contains_num = get_lowest_similarity_exam(questions, recent_questions, delta, contains_num)
     if flagcontinue == [] and contains_num != 0:
-        get_questions_from_bank(topics, number_of_questions, number_of_answers, sach, bai, chude, mucdo, yccd,
+        get_questions(topics, number_of_questions, number_of_answers, sach, bai, chude, mucdo, yccd,
                                 contains_num, 0.5)
     else:
         new_ques = []
@@ -257,14 +257,7 @@ def get_questions(topics: str, number_of_questions: int, number_of_answers: int,
                               ,correct_answer=ques.correct_answer)
             new_ques.append(quesv2)
         return new_ques
-    new_ques = []
-    for ques in questions:
-        quesv2 = Question(id=ques.id
-                            ,question=sanitize_line(ques.question,is_question=True)
-                            ,answers=ques.answers
-                            ,correct_answer=ques.correct_answer)
-        new_ques.append(quesv2)
-    return new_ques
+    return []
 
 
 def clarify_question(question: Question) -> str:
