@@ -229,11 +229,11 @@ def get_questions(topics: str, number_of_questions: int, number_of_answers: int,
         response = complete_text(prompt)
         new_questions = response_to_questions(response)
         new_ver_ques = []
-        for i, (cauhoi, cautraloi, dapan) in enumerate(new_questions):
+        for ques in new_questions:
             # Làm sạch câu hỏi
-            cauhoi = sanitize_line(cauhoi, is_question=True)
+            cauhoi = sanitize_line(ques.question, is_question=True)
             # Làm sạch từng đáp án
-            answers = [sanitize_line(answer.strip(), is_question=False) for answer in cautraloi.split('~')]
+            answers = [sanitize_line(answer.strip(), is_question=False) for answer in ques.answers]
             # Create the Question object
             question = Question(
                 id=len(questions) + 1,
@@ -377,11 +377,11 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
         response = complete_text(prompt)
         new_questions = response_to_questions(response)
         new_ver_ques = []
-        for i, (cauhoi, cautraloi, dapan) in enumerate(new_questions):
+        for ques in new_questions:
             # Làm sạch câu hỏi
-            cauhoi = sanitize_line(cauhoi, is_question=True)
+            cauhoi = sanitize_line(ques.question, is_question=True)
             # Làm sạch từng đáp án
-            answers = [sanitize_line(answer.strip(), is_question=False) for answer in cautraloi.split('~')]
+            answers = [sanitize_line(answer.strip(), is_question=False) for answer in ques.answers]
             # Create the Question object
             question = Question(
                 id=len(questions) + 1,
