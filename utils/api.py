@@ -360,15 +360,10 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
         new_questions = response_to_questions(response)
 
         recent_questions = load_recent_questions(ROOT_PATH + "/exam.json")
-        print('recent')
-        print(recent_questions)
         flagcontinue, contains_num = get_lowest_similarity_exam(new_questions, recent_questions, delta, contains_num)
         if flagcontinue == [] and contains_num != 0:
             get_questions_from_bank(topics, number_of_questions, number_of_answers, sach, bai, chude, mucdo, yccd, contains_num, 0.5)
         else:
-            print("else")
-            print(new_questions)
-            print("esle end")
             new_ver_ques  = []
             # Create Question objects from the selected data
             for i, (cauhoi, cautraloi, dapan) in enumerate(new_questions):
@@ -391,8 +386,6 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
             return new_ver_ques
         
         new_ver_ques  = []
-        print("not else")
-        print(new_questions)
         # Create Question objects from the selected data
         for i, (cauhoi, cautraloi, dapan) in enumerate(new_questions):
             # Làm sạch câu hỏi
@@ -615,10 +608,8 @@ def get_lowest_similarity_exam(new_questions: List[Question], recent_questions: 
     """Find the new questions with the lowest average similarity to existing questions.
        If the average similarity of all new questions exceeds delta, trigger a regeneration."""
     print('get_lowest_similarity_exam')
-    print(new_questions)
-    print('recent_questions start')
-    print(recent_questions)
-    print('recent_questions end')
+    if(len(recent_questions) == 0):
+        return new_questions, 0
     if calculate_similarity_batch(new_questions, recent_questions, delta, 0.7):
         return new_questions, 0
     else:
