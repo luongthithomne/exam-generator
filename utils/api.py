@@ -360,7 +360,8 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
         new_questions = response_to_questions(response)
 
         recent_questions = load_recent_questions(ROOT_PATH + "/exam.json")
-
+        print('recent')
+        print(recent_questions)
         flagcontinue, contains_num = get_lowest_similarity_exam(new_questions, recent_questions, delta, contains_num)
         if flagcontinue == [] and contains_num != 0:
             get_questions_from_bank(topics, number_of_questions, number_of_answers, sach, bai, chude, mucdo, yccd, contains_num, 0.5)
