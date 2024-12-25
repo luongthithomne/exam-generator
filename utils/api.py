@@ -224,8 +224,26 @@ def get_questions(topics: str, number_of_questions: int, number_of_answers: int,
                 correct_answer=correct_answer_index
             )
             questions.append(question)
-    
-    if len(questions) < number_of_questions:
+    if(len(questions) == 0):
+        prompt = prepare_prompt(topics, number_of_questions, number_of_answers, sach, bai, chude, mucdo, yccd)
+        response = complete_text(prompt)
+        new_questions = response_to_questions(response)
+        new_ver_ques = []
+        for i, (cauhoi, cautraloi, dapan) in enumerate(new_questions):
+            # Làm sạch câu hỏi
+            cauhoi = sanitize_line(cauhoi, is_question=True)
+            # Làm sạch từng đáp án
+            answers = [sanitize_line(answer.strip(), is_question=False) for answer in cautraloi.split('~')]
+            # Create the Question object
+            question = Question(
+                id=len(questions) + 1,
+                question=cauhoi,
+                answers=answers,
+                correct_answer=correct_answer_index
+            )
+            new_ver_ques.append(question)
+        return new_ver_ques
+    elif len(questions) < number_of_questions:
         additional_needed = number_of_questions - len(questions)
         additional_questions = random.sample(filtered_data[['CAUHOI', 'CAUTRALOI', 'DAPAN']].values.tolist(),
                                              additional_needed)
@@ -358,53 +376,12 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
         prompt = prepare_prompt(topics, number_of_questions, number_of_answers, sach, bai, chude, mucdo, yccd)
         response = complete_text(prompt)
         new_questions = response_to_questions(response)
-        print("new_questions ver 1")
-        print(new_questions)
-        recent_questions = load_recent_questions(ROOT_PATH + "/exam.json")
-
-        print("recent_questions")
-        print(recent_questions)
-
-        
-        flagcontinue, contains_num = get_lowest_similarity_exam(new_questions, recent_questions, delta, contains_num)
-        if flagcontinue == [] and contains_num != 0:
-            get_questions_from_bank(topics, number_of_questions, number_of_answers, sach, bai, chude, mucdo, yccd, contains_num, 0.5)
-        else:
-            new_ver_ques  = []
-            print('else')
-            print(new_questions)
-            # Create Question objects from the selected data
-            for i, (cauhoi, cautraloi, dapan) in enumerate(new_questions):
-                # Làm sạch câu hỏi
-                cauhoi = sanitize_line(cauhoi, is_question=True)
-                # Làm sạch từng đáp án
-                answers = [sanitize_line(answer.strip(), is_question=False) for answer in cautraloi.split('~')]
-
-                # Find the most similar answer to the correct answer using PhoBERT embeddings
-                correct_answer_index = get_most_similar_answer(dapan, answers)
-
-                # Create the Question object
-                question = Question(
-                    id=len(questions) + 1,
-                    question=cauhoi,
-                    answers=answers,
-                    correct_answer=correct_answer_index
-                )
-                new_ver_ques.append(question)
-            return new_ver_ques
-        print('notelse')
-        print(new_questions)
-        new_ver_ques  = []
-        # Create Question objects from the selected data
+        new_ver_ques = []
         for i, (cauhoi, cautraloi, dapan) in enumerate(new_questions):
             # Làm sạch câu hỏi
             cauhoi = sanitize_line(cauhoi, is_question=True)
             # Làm sạch từng đáp án
             answers = [sanitize_line(answer.strip(), is_question=False) for answer in cautraloi.split('~')]
-
-            # Find the most similar answer to the correct answer using PhoBERT embeddings
-            correct_answer_index = get_most_similar_answer(dapan, answers)
-
             # Create the Question object
             question = Question(
                 id=len(questions) + 1,
