@@ -365,7 +365,27 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
         if flagcontinue == [] and contains_num != 0:
             get_questions_from_bank(topics, number_of_questions, number_of_answers, sach, bai, chude, mucdo, yccd, contains_num, 0.5)
         else:
-            return new_questions
+            new_ver_ques  = []
+            # Create Question objects from the selected data
+            for i, (cauhoi, cautraloi, dapan) in enumerate(new_questions):
+                # Làm sạch câu hỏi
+                cauhoi = sanitize_line(cauhoi, is_question=True)
+                # Làm sạch từng đáp án
+                answers = [sanitize_line(answer.strip(), is_question=False) for answer in cautraloi.split('~')]
+
+                # Find the most similar answer to the correct answer using PhoBERT embeddings
+                correct_answer_index = get_most_similar_answer(dapan, answers)
+
+                # Create the Question object
+                question = Question(
+                    id=len(questions) + 1,
+                    question=cauhoi,
+                    answers=answers,
+                    correct_answer=correct_answer_index
+                )
+                new_ver_ques.append(question)
+            return new_ver_ques
+        
         return new_questions
     elif len(questions) < number_of_questions:
         additional_needed = number_of_questions - len(questions)
