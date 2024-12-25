@@ -73,7 +73,7 @@ def prepare_prompt(topics: str, number_of_questions: int, number_of_answers: int
 def prepare_prompt_regenerate(questions: List[Question]) -> str:
     prompt = "Dựa trên các câu hỏi đã có, hãy tạo ra các câu hỏi tương đương với cùng thông tin nhưng được diễn đạt khác. Dưới đây là câu hỏi và câu trả lời:\n\n"
     for q in questions:
-        prompt += f"Q: {q.question}\n"
+        prompt += f"{q.question}\n"
         for i, answer in enumerate(q.answers):
             if i == q.correct_answer:
                 prompt += f"**{answer}**\n"
