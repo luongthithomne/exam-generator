@@ -236,10 +236,10 @@ def get_questions(topics: str, number_of_questions: int, number_of_answers: int,
             answers = [sanitize_line(answer.strip(), is_question=False) for answer in ques.answers]
             # Create the Question object
             question = Question(
-                id=len(questions) + 1,
+                id=ques.id,
                 question=cauhoi,
                 answers=answers,
-                correct_answer=correct_answer_index
+                correct_answer=ques.correct_answer
             )
             new_ver_ques.append(question)
         return new_ver_ques
@@ -384,10 +384,10 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
             answers = [sanitize_line(answer.strip(), is_question=False) for answer in ques.answers]
             # Create the Question object
             question = Question(
-                id=len(questions) + 1,
+                id=ques.id,
                 question=cauhoi,
                 answers=answers,
-                correct_answer=correct_answer_index
+                correct_answer=ques.correct_answer
             )
             new_ver_ques.append(question)
         return new_ver_ques
