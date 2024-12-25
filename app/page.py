@@ -99,7 +99,6 @@ class GenerateExamPage(Page):
         csv_file_path = ROOT_PATH + '/data.csv'
         data = pd.read_csv(csv_file_path, delimiter=';', on_bad_lines='skip')
         data = data[['SACH', 'BAI', 'CHUDE', 'MUCDO', 'NOIDUNG_YCCD']].dropna()
-        app.questions = None
         # Initialize session state for selected items if not already done
         if 'selected_bai_info' not in st.session_state:
             st.session_state.selected_bai_info = []
