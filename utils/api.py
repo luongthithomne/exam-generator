@@ -365,6 +365,8 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
         if flagcontinue == [] and contains_num != 0:
             get_questions_from_bank(topics, number_of_questions, number_of_answers, sach, bai, chude, mucdo, yccd, contains_num, 0.5)
         else:
+            print("else")
+            print(new_questions)
             new_ver_ques  = []
             # Create Question objects from the selected data
             for i, (cauhoi, cautraloi, dapan) in enumerate(new_questions):
@@ -387,6 +389,8 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
             return new_ver_ques
         
         new_ver_ques  = []
+        print("not else")
+        print(new_questions)
         # Create Question objects from the selected data
         for i, (cauhoi, cautraloi, dapan) in enumerate(new_questions):
             # Làm sạch câu hỏi
