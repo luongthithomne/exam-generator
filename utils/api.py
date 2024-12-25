@@ -365,6 +365,8 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
             get_questions_from_bank(topics, number_of_questions, number_of_answers, sach, bai, chude, mucdo, yccd, contains_num, 0.5)
         else:
             new_ver_ques  = []
+            print('else')
+            print(new_questions)
             # Create Question objects from the selected data
             for i, (cauhoi, cautraloi, dapan) in enumerate(new_questions):
                 # Làm sạch câu hỏi
@@ -384,7 +386,8 @@ def get_questions_from_bank(topics: str, number_of_questions: int, number_of_ans
                 )
                 new_ver_ques.append(question)
             return new_ver_ques
-        
+        print('notelse')
+        print(new_questions)
         new_ver_ques  = []
         # Create Question objects from the selected data
         for i, (cauhoi, cautraloi, dapan) in enumerate(new_questions):
